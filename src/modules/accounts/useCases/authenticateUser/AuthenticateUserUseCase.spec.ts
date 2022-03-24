@@ -50,14 +50,14 @@ describe("Authenticate User", () => {
         driver_license: "000123",
         email: "test@test.com",
         name: "teste name",
-        password: "incorrectPassword",
+        password: "000123",
       };
 
       await createUserUseCase.execute(user);
 
       await authenticateUserUseCase.execute({
         email: user.email,
-        password: "123",
+        password: "incorrectPassword",
       });
     }).rejects.toBeInstanceOf(AppError);
   });
